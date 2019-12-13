@@ -1,6 +1,6 @@
 /**
  *  @file bpgen.c
- *  @version 0.0.0
+ *  @version 0.0.1-dev0
  *  @date Fri Dec 13 16:11:36 CST 2019
  *  @copyright %COPYRIGHT%
  *  @brief FIXME
@@ -67,7 +67,7 @@ bpgen_init(struct bpgen *p)
 const char *
 bpgen_version(void)
 {
-   return "0.0.0";
+   return "0.0.1-dev0";
 }
 
 int

@@ -1,6 +1,6 @@
 /**
  *  @file bpgen.h
- *  @version 0.0.0
+ *  @version 0.0.1-dev0
  *  @date Fri Dec 13 16:11:36 CST 2019
  *  @copyright %COPYRIGHT%
  *  @brief FIXME
