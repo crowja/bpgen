@@ -1,2 +1,2 @@
-# bpgen
-C-scrap class providing a binary partition generator.
+# bpartgen_iter 0.0.0.
+
