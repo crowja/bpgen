@@ -1,7 +1,7 @@
 /**
  *  @file bpgen.h
  *  @version 0.1.0-dev0
- *  @date Fri Dec 13 22:03:06 CST 2019
+ *  @date Fri Dec 13 22:43:09 CST 2019
  *  @copyright %COPYRIGHT%
  *  @brief FIXME
  *  @details FIXME
@@ -32,21 +32,13 @@ struct bpgen *bpgen_new(size_t k);
 void        bpgen_free(struct bpgen **pp);
 
 /**
- *  @brief Initialize a bpgen object.
- *  @details FIXME longer description here ...
- *  @param[in,out] p Pointer to a bpgen object
- *  @param[in] x FIXME
-    @returns FIXME
- */
-int         bpgen_init(struct bpgen *p);
-
-/**
  *  @brief Return the version of this package.
  *  @returns Version string.
  */
 const char *bpgen_version(void);
 
 int         bpgen_next(struct bpgen *p, unsigned *gp);
+void        bpgen_reset(struct bpgen *p);
 
 
 #endif

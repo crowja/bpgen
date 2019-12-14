@@ -1,7 +1,7 @@
 /**
  *  @file bpgen.c
  *  @version 0.1.0-dev0
- *  @date Fri Dec 13 22:03:06 CST 2019
+ *  @date Fri Dec 13 22:43:09 CST 2019
  *  @copyright %COPYRIGHT%
  *  @brief FIXME
  *  @details FIXME
@@ -40,7 +40,6 @@ bpgen_new(size_t k)
    tp->k = k;
    tp->count = 0;
    tp->max = (1 << (k - 1)) - 1;
-   printf("USING A MAX OF %d\n", tp->max);
 
    return tp;
 }
@@ -48,19 +47,8 @@ bpgen_new(size_t k)
 void
 bpgen_free(struct bpgen **pp)
 {
-   /* Do some magic here ... */
-
    _FREE(*pp);
    *pp = NULL;
-}
-
-int
-bpgen_init(struct bpgen *p)
-{
-
-   /* Do some magic here ... */
-
-   return 0;
 }
 
 const char *
@@ -82,6 +70,12 @@ bpgen_next(struct bpgen *p, unsigned *gp)
    for (i = 0; i < p->k - 1; i++)
       gp[i + 1] = p->count & (1 << i) ? 1 : 0;
    return 1;
+}
+
+void
+bpgen_reset(struct bpgen *p)
+{
+   p->count = 0;
 }
 
 #undef  _IS_NULL
