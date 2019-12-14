@@ -5,14 +5,14 @@ int
 main(void)
 {
    unsigned    k = 5;
-   unsigned    max = 1 << k;
+   unsigned    max = 1 << (k - 1);
    unsigned    i, j;
 
 
-   for (j = 0; j < max; j++) {
-      printf("%d", (0 << 0) ? 1 : 0);
+   for (j = 0; j < max - 1; j++) {
+      printf("%d", 0);
       for (i = 0; i < k - 1; i++) {
-         printf("\t%d", j & (1 << i) ? 1 : 0);
+         printf("\t%d", j & (1 << i) ? 0 : 1);
       }
       printf("\n");
    }
