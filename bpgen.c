@@ -1,7 +1,7 @@
 /**
  *  @file bpgen.c
  *  @version 0.0.2-dev0
- *  @date Fri Dec 13 16:11:36 CST 2019
+ *  @date Fri Dec 13 22:03:06 CST 2019
  *  @copyright %COPYRIGHT%
  *  @brief FIXME
  *  @details FIXME
@@ -23,13 +23,13 @@
 #define _FREE(p)      ((NULL == (p)) ? (0) : (free((p)), (p) = NULL))
 
 struct bpgen {
-   size_t      n;                           /* n items */
+   size_t      k;                           /* n items */
    unsigned    count;
    unsigned    max;
 };
 
 struct bpgen *
-bpgen_new(size_t n)
+bpgen_new(size_t k)
 {
    struct bpgen *tp;
 
@@ -37,9 +37,9 @@ bpgen_new(size_t n)
    if (_IS_NULL(tp))
       return NULL;
 
-   tp->n = n;
+   tp->k = k;
    tp->count = 0;
-   tp->max = 1 << (n - 1);
+   tp->max = (1 << (k - 1)) - 1;
    printf("USING A MAX OF %d\n", tp->max);
 
    return tp;
@@ -48,7 +48,6 @@ bpgen_new(size_t n)
 void
 bpgen_free(struct bpgen **pp)
 {
-
    /* Do some magic here ... */
 
    _FREE(*pp);
@@ -71,9 +70,18 @@ bpgen_version(void)
 }
 
 int
-bpgen_next(struct bpgen *p)
+bpgen_next(struct bpgen *p, unsigned *gp)
 {
+   unsigned    i;
 
+   if (p->count == p->max)
+      return 0;
+
+   p->count += 1;
+   gp[0] = 0;
+   for (i = 0; i < p->k - 1; i++)
+      gp[i + 1] = p->count & (1 << i) ? 1 : 0;
+   return 1;
 }
 
 #undef  _IS_NULL

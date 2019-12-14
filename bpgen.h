@@ -1,7 +1,7 @@
 /**
  *  @file bpgen.h
  *  @version 0.0.2-dev0
- *  @date Fri Dec 13 16:11:36 CST 2019
+ *  @date Fri Dec 13 22:03:06 CST 2019
  *  @copyright %COPYRIGHT%
  *  @brief FIXME
  *  @details FIXME
@@ -22,7 +22,7 @@ struct bpgen;
  *  @details Create and return a new bpgen object.
  *  @returns New bpgen object.
  */
-struct bpgen *bpgen_new(size_t n);
+struct bpgen *bpgen_new(size_t k);
 
 /**
  *  @brief Destructor.
@@ -45,5 +45,8 @@ int         bpgen_init(struct bpgen *p);
  *  @returns Version string.
  */
 const char *bpgen_version(void);
+
+int         bpgen_next(struct bpgen *p, unsigned *gp);
+
 
 #endif
