@@ -1,10 +1,9 @@
 /**
  *  @file bpgen.c
  *  @version 0.1.0-dev0
- *  @date Fri Dec 13 22:43:09 CST 2019
- *  @copyright %COPYRIGHT%
- *  @brief FIXME
- *  @details FIXME
+ *  @date Wed Jan  1 21:20:27 CST 2020
+ *  @copyright 2020 John A. Crow <crowja@gmail.com>
+ *  @license Unlicense <http://unlicense.org/>
  */
 
 #include <stdlib.h>
