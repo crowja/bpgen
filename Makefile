@@ -77,8 +77,8 @@ indent: stamp
 	@indent $(INDENT_FLAGS) ex/ex_1.c
 
 stamp:
-	@bash stamper.bash bpgen.c
-	@bash stamper.bash bpgen.h
+	@stamper.bash bpgen.c
+	@stamper.bash bpgen.h
 
 clean:
 	@/bin/rm -f *.o *~ *.BAK *.bak core.*
