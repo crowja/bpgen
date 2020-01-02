@@ -1,6 +1,6 @@
 /**
  *  @file bpgen.c
- *  @version 0.1.0-dev0
+ *  @version 0.2.0-dev0
  *  @date Wed Jan  1 21:20:27 CST 2020
  *  @copyright 2020 John A. Crow <crowja@gmail.com>
  *  @license Unlicense <http://unlicense.org/>
@@ -53,7 +53,7 @@ bpgen_free(struct bpgen **pp)
 const char *
 bpgen_version(void)
 {
-   return "0.1.0-dev0";
+   return "0.2.0-dev0";
 }
 
 int
