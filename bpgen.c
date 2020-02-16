@@ -1,7 +1,7 @@
 /**
  *  @file bpgen.c
  *  @version 0.2.0-dev0
- *  @date Wed Jan  1 21:20:27 CST 2020
+ *  @date Sun Feb 16, 2020 03:52:19 PM CST
  *  @copyright 2020 John A. Crow <crowja@gmail.com>
  *  @license Unlicense <http://unlicense.org/>
  */
@@ -11,15 +11,15 @@
 #include <string.h>                              /* FIXME */
 #include "bpgen.h"
 
-#ifdef  _IS_NULL
-#undef  _IS_NULL
+#ifdef  IS_NULL
+#undef  IS_NULL
 #endif
-#define _IS_NULL(p)   ((NULL == (p)) ? (1) : (0))
+#define IS_NULL(p)   ((NULL == (p)) ? (1) : (0))
 
-#ifdef  _FREE
-#undef  _FREE
+#ifdef  FREE
+#undef  FREE
 #endif
-#define _FREE(p)      ((NULL == (p)) ? (0) : (free((p)), (p) = NULL))
+#define FREE(p)      ((NULL == (p)) ? (0) : (free((p)), (p) = NULL))
 
 struct bpgen {
    size_t      k;                           /* n items */
@@ -33,7 +33,7 @@ bpgen_new(size_t k)
    struct bpgen *tp;
 
    tp = (struct bpgen *) malloc(sizeof(struct bpgen));
-   if (_IS_NULL(tp))
+   if (IS_NULL(tp))
       return NULL;
 
    tp->k = k;
@@ -46,7 +46,7 @@ bpgen_new(size_t k)
 void
 bpgen_free(struct bpgen **pp)
 {
-   _FREE(*pp);
+   FREE(*pp);
    *pp = NULL;
 }
 
@@ -77,5 +77,5 @@ bpgen_reset(struct bpgen *p)
    p->count = 0;
 }
 
-#undef  _IS_NULL
-#undef  _FREE
+#undef  IS_NULL
+#undef  FREE

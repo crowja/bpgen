@@ -1,18 +1,13 @@
 /**
  *  @file bpgen.h
  *  @version 0.2.0-dev0
- *  @date Wed Jan  1 21:20:27 CST 2020
+ *  @date Sun Feb 16, 2020 03:52:19 PM CST
  *  @copyright 2020 John A. Crow <crowja@gmail.com>
  *  @license Unlicense <http://unlicense.org/>
  */
 
-#ifndef _BPGEN_H_
-#define _BPGEN_H_
-
-#ifdef  _PACKAGE_NAME
-#undef  _PACKAGE_NAME
-#endif
-#define _PACKAGE_NAME "bpgen"
+#ifndef BPGEN_H_
+#define BPGEN_H_
 
 struct bpgen;
 
@@ -38,6 +33,5 @@ const char *bpgen_version(void);
 
 int         bpgen_next(struct bpgen *p, unsigned *gp);
 void        bpgen_reset(struct bpgen *p);
-
 
 #endif
